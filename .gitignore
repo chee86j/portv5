@@ -3,39 +3,36 @@
 # dependencies
 /node_modules
 /.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
+.pnp.js
 
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
+# Next.js
+/.next
+/out
 
 # production
 /build
 
+# testing
+/coverage
+
 # misc
 .DS_Store
-*.pem
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# debug
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# Ignore all files and folders in the Downloads directory
+/Downloads/*
 
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# Exclude specific files or folders inside the Downloads directory
+!/Downloads/portv5/
