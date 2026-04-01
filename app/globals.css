@@ -1,26 +1,594 @@
 @import "tailwindcss";
 
-:root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-}
+/* Class-based dark mode (next-themes adds .dark to <html>) */
+@custom-variant dark (&:is(.dark *));
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+@theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-foreground: rgb(10, 10, 10);
+  --color-background: #ffffff;
+  --color-muted: rgb(85, 85, 85);
+  --color-border: rgb(163, 163, 163);
+  --color-surface: rgb(250, 250, 250);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #ffffff;
-    --foreground: #171717;
+/* Dark mode token overrides */
+.dark {
+  --color-foreground: rgb(255, 255, 255);
+  --color-background: #252525;
+  --color-muted: rgb(187, 187, 187);
+  --color-border: rgb(185, 185, 185);
+  --color-surface: rgb(60, 60, 60);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ─── CV Button ──────────────────────────────────────────────── */
+.cv-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 125px;
+  height: 45px;
+  border-radius: 20px;
+  border: none;
+  padding: 5px 10px;
+  background: linear-gradient(
+    160deg,
+    #2f5dc5 0%,
+    #2e56c2 5%,
+    #2f5dc5 11%,
+    #3bbee6 57%,
+    #00d4ff 71%
+  );
+  color: #fff;
+  font-weight: 505;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  filter: drop-shadow(0 0 10px rgba(59, 190, 230, 0.568));
+  transition:
+    width 0.5s linear,
+    height 0.5s linear,
+    border-radius 0.5s linear;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.cv-btn .mysvg {
+  display: none;
+}
+
+.cv-btn:hover {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+}
+
+.cv-btn:hover .texto {
+  display: none;
+}
+
+.cv-btn:hover .mysvg {
+  display: inline;
+}
+
+.cv-btn:hover::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  border: 3.5px solid transparent;
+  border-top-color: #fff;
+  border-right-color: #fff;
+  border-radius: 50%;
+  animation: animateC 2s linear infinite;
+}
+
+@keyframes animateC {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ─── Skill icon jello hover ─────────────────────────────────── */
+.skill-item:hover {
+  animation: jello-horizontal 0.6s both;
+}
+
+@keyframes jello-horizontal {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+/* ─── Loader animation ───────────────────────────────────────── */
+.loader-wrapper {
+  --lw-size: 200px;
+  --lb-size: 70%;
+  width: var(--lw-size);
+  height: var(--lw-size);
+  user-select: none;
+}
+
+.loader-box-wrap {
+  width: var(--lb-size);
+  height: var(--lb-size);
+  margin: calc((100% - var(--lb-size)) / 2);
+  position: relative;
+  transform: rotate(-45deg);
+}
+
+.loader-box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: linear-gradient(to right, #00ffff, #cc6e44, #ff0093);
+  background-position: 0% 50%;
+  background-size: 1000% 1000%;
+  visibility: hidden;
+}
+
+.loader-box.one {
+  animation:
+    moveGradient 15s infinite,
+    oneMove 3.5s 0s infinite;
+}
+.loader-box.two {
+  animation:
+    moveGradient 15s infinite,
+    twoMove 3.5s 0.15s infinite;
+}
+.loader-box.three {
+  animation:
+    moveGradient 15s infinite,
+    threeMove 3.5s 0.3s infinite;
+}
+.loader-box.four {
+  animation:
+    moveGradient 15s infinite,
+    fourMove 3.5s 0.575s infinite;
+}
+.loader-box.five {
+  animation:
+    moveGradient 15s infinite,
+    fiveMove 3.5s 0.725s infinite;
+}
+.loader-box.six {
+  animation:
+    moveGradient 15s infinite,
+    sixMove 3.5s 0.875s infinite;
+}
+
+@keyframes moveGradient {
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes oneMove {
+  0% {
+    visibility: visible;
+    clip-path: inset(0% 35% 70% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  14.2857% {
+    clip-path: inset(0% 35% 70% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  28.5714% {
+    clip-path: inset(35% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  42.8571% {
+    clip-path: inset(35% 70% 35% 0 round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  57.1428% {
+    clip-path: inset(35% 70% 35% 0 round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  71.4285% {
+    clip-path: inset(0% 70% 70% 0 round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  85.7142% {
+    clip-path: inset(0% 70% 70% 0 round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  100% {
+    clip-path: inset(0% 35% 70% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+}
+
+@keyframes twoMove {
+  0% {
+    visibility: visible;
+    clip-path: inset(0% 70% 70% 0 round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  14.2857% {
+    clip-path: inset(0% 70% 70% 0 round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  28.5714% {
+    clip-path: inset(0% 35% 70% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  42.8571% {
+    clip-path: inset(0% 35% 70% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  57.1428% {
+    clip-path: inset(35% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  71.4285% {
+    clip-path: inset(35% 70% 35% 0 round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  85.7142% {
+    clip-path: inset(35% 70% 35% 0 round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  100% {
+    clip-path: inset(0% 70% 70% 0 round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+}
+
+@keyframes threeMove {
+  0% {
+    visibility: visible;
+    clip-path: inset(35% 70% 35% 0 round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  14.2857% {
+    clip-path: inset(35% 70% 35% 0 round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  28.5714% {
+    clip-path: inset(0% 70% 70% 0 round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  42.8571% {
+    clip-path: inset(0% 70% 70% 0 round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  57.1428% {
+    clip-path: inset(0% 35% 70% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  71.4285% {
+    clip-path: inset(0% 35% 70% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  85.7142% {
+    clip-path: inset(35% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  100% {
+    clip-path: inset(35% 70% 35% 0 round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+}
+
+@keyframes fourMove {
+  0% {
+    visibility: visible;
+    clip-path: inset(35% 0% 35% 70% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  14.2857% {
+    clip-path: inset(35% 0% 35% 70% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  28.5714% {
+    clip-path: inset(35% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  42.8571% {
+    clip-path: inset(70% 35% 0% 35% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  57.1428% {
+    clip-path: inset(70% 35% 0% 35% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  71.4285% {
+    clip-path: inset(70% 0 0 70% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  85.7142% {
+    clip-path: inset(70% 0 0 70% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  100% {
+    clip-path: inset(35% 0% 35% 70% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+}
+
+@keyframes fiveMove {
+  0% {
+    visibility: visible;
+    clip-path: inset(70% 0 0 70% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  14.2857% {
+    clip-path: inset(70% 0 0 70% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  28.5714% {
+    clip-path: inset(35% 0% 35% 70% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  42.8571% {
+    clip-path: inset(35% 0% 35% 70% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  57.1428% {
+    clip-path: inset(35% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  71.4285% {
+    clip-path: inset(70% 35% 0% 35% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  85.7142% {
+    clip-path: inset(70% 35% 0% 35% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  100% {
+    clip-path: inset(70% 0 0 70% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+}
+
+@keyframes sixMove {
+  0% {
+    visibility: visible;
+    clip-path: inset(70% 35% 0% 35% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  14.2857% {
+    clip-path: inset(70% 35% 0% 35% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  28.5714% {
+    clip-path: inset(70% 0 0 70% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  42.8571% {
+    clip-path: inset(70% 0 0 70% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  57.1428% {
+    clip-path: inset(35% 0% 35% 70% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  71.4285% {
+    clip-path: inset(35% 0% 35% 70% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  85.7142% {
+    clip-path: inset(35% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  100% {
+    clip-path: inset(70% 35% 0% 35% round 5%);
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .loader-box,
+  .cv-btn,
+  .cv-btn::before,
+  .skill-item:hover {
+    animation: none;
+  }
+}
+
+/* Theme Toggle */
+.toggle-cont {
+  --primary: #54a8fc;
+  --light: #d9d9d9;
+  --dark: #121212;
+  --gray: #414344;
+  width: fit-content;
+  height: 50px;
+  border-radius: 9999px;
+}
+
+.toggle-cont .toggle-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.toggle-cont .toggle-label {
+  --gap: 5px;
+  --width: 50px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  padding: 0.5rem;
+  width: calc((var(--width) + var(--gap)) * 2);
+  height: 100%;
+  background-color: transparent;
+  border: 1px solid #777777;
+  border-bottom: 0;
+  border-radius: 9999px;
+  box-sizing: content-box;
+  transition: all 0.3s ease-in-out;
+}
+
+.toggle-cont .toggle-label::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 1.5rem);
+  height: calc(100% + 1.5rem);
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  border-radius: 9999px;
+  transition: all 0.3s ease-in-out;
+}
+
+.toggle-cont .toggle-label::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-image: none;
+  border-radius: 9999px;
+}
+
+.toggle-cont .toggle-input:focus-visible + .toggle-label {
+  outline: 2px solid #9ca3af;
+  outline-offset: 4px;
+}
+
+.toggle-cont .toggle-label .cont-icon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--width);
+  height: 50px;
+  background-image: radial-gradient(
+    circle at 50% 0%,
+    #666666 0%,
+    var(--gray) 100%
+  );
+  border: 1px solid #aaaaaa;
+  border-bottom: 0;
+  border-radius: 9999px;
+  box-shadow: inset 0 -0.15rem 0.15rem var(--primary);
+  transition:
+    transform 0.3s ease-in-out,
+    background-image 0.3s ease-in-out,
+    border-color 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+}
+
+.toggle-cont .cont-icon {
+  overflow: clip;
+}
+
+.toggle-cont .cont-icon .sparkle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: calc(var(--width) * 1px);
+  aspect-ratio: 1;
+  background-color: var(--light);
+  border-radius: 50%;
+  transform-origin: 50% 50%;
+  rotate: calc(1deg * var(--deg));
+  transform: translate(-50%, -50%);
+  animation: sparkle calc(100s / var(--duration)) linear infinite;
+}
+
+@keyframes sparkle {
+  to {
+    width: calc(var(--width) * 0.5px);
+    transform: translate(2000%, -50%);
+  }
+}
+
+.toggle-cont .cont-icon .icon {
+  width: 1.1rem;
+  fill: var(--light);
+}
+
+.toggle-cont .toggle-input:checked + .toggle-label {
+  background-color: transparent;
+  border: 1px solid #3d6970;
+  border-bottom: 0;
+}
+
+.toggle-cont .toggle-input:checked + .toggle-label::before {
+  background-color: var(--gray);
+  border-color: #777777;
+  box-shadow: 0 1rem 2.5rem -2rem #0080ff;
+}
+
+.toggle-cont .toggle-input:checked + .toggle-label::after {
+  background-image: radial-gradient(
+    circle at 50% -100%,
+    rgb(58, 155, 252) 0%,
+    rgba(12, 12, 12, 1) 80%
+  );
+}
+
+.toggle-cont .toggle-input:checked + .toggle-label .cont-icon {
+  overflow: visible;
+  background-image: radial-gradient(
+    circle at 50% 0%,
+    #045ab1 0%,
+    var(--primary) 100%
+  );
+  border: 1px solid var(--primary);
+  border-bottom: 0;
+  transform: translateX(calc((var(--gap) * 2) + 100%)) rotate(-225deg);
+}
+
+.toggle-cont .toggle-input:checked + .toggle-label .cont-icon .sparkle {
+  z-index: -1;
+  width: calc(var(--width) * 1.5px);
+  background-color: #acacac;
 }

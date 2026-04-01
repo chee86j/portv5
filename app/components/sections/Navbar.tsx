@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-// import { DarkModeToggler } from "@/components/ui/DarkModeToggler";
+import { DarkModeToggler } from "@/app/components/ui/DarkModeToggler";
 
 const NAV_LINKS = [
   { label: "About", href: "#about" },
@@ -23,7 +23,7 @@ export function Navbar() {
 
   return (
     <>
-      {/* <DarkModeToggler/> */}
+      <DarkModeToggler />
 
       {/* Desktop nav */}
       <nav

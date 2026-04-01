@@ -2,8 +2,10 @@
 
 export function About() {
   return (
-    <h1 className="text-3xl lg:text-4xl font-bold text-center mt-1">
-      About Me
-    </h1>
+    <section id="about" className="scroll-mt-24">
+      <h1 className="mt-1 text-center text-3xl font-bold lg:text-4xl">
+        About Me
+      </h1>
+    </section>
   );
 }

@@ -2,8 +2,10 @@
 
 export function Contact() {
   return (
-    <h1 className="text-3xl lg:text-4xl font-bold text-center mt-1">
-      Contact Me
-    </h1>
+    <section id="contact" className="scroll-mt-24">
+      <h1 className="mt-1 text-center text-3xl font-bold lg:text-4xl">
+        Contact Me
+      </h1>
+    </section>
   );
 }
