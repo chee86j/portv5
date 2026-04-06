@@ -25,7 +25,7 @@ export function Footer() {
         </ul>
       </nav>
       <p className="text-center text-sm leading-relaxed text-[rgb(85,85,85)] dark:text-[rgb(193,193,193)]">
-        Version 6.0 &mdash; Copyright &copy; {new Date().getFullYear()} Jeffrey
+        Version 5.0 &mdash; Copyright &copy; {new Date().getFullYear()} Jeffrey
         Chee. All Rights Reserved.
       </p>
     </footer>
