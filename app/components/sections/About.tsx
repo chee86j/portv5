@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { FaBriefcase, FaGraduationCap, FaArrowDown } from "react-icons/fa";
+import { TiltCard } from "@/app/components/ui/TiltCard";
 
 export function About() {
   return (
@@ -32,7 +33,7 @@ export function About() {
         {/* Details */}
         <div className="flex flex-col gap-8 lg:max-w-4xl">
           <div className="grid gap-5 sm:grid-cols-2 lg:gap-6">
-            <div className="flex min-h-[170px] flex-col items-center justify-center text-center p-6 rounded-3xl border border-[rgb(163,163,163)] dark:border-[rgb(185,185,185)] dark:bg-[rgb(60,60,60)] transition-colors duration-300">
+            <TiltCard className="flex min-h-[170px] flex-col items-center justify-center text-center p-6 rounded-3xl border border-[rgb(163,163,163)] dark:border-[rgb(185,185,185)] dark:bg-[rgb(60,60,60)] transition-colors duration-300">
               <FaBriefcase
                 size={28}
                 className="mb-3 text-foreground"
@@ -44,9 +45,9 @@ export function About() {
               <p className="text-sm text-[rgb(85,85,85)] dark:text-[rgb(193,193,193)]">
                 FullStack Academy — Software Engineering Immersive Cert.
               </p>
-            </div>
+            </TiltCard>
 
-            <div className="flex min-h-[170px] flex-col items-center justify-center text-center p-6 rounded-3xl border border-[rgb(163,163,163)] dark:border-[rgb(185,185,185)] dark:bg-[rgb(60,60,60)] transition-colors duration-300">
+            <TiltCard className="flex min-h-[170px] flex-col items-center justify-center text-center p-6 rounded-3xl border border-[rgb(163,163,163)] dark:border-[rgb(185,185,185)] dark:bg-[rgb(60,60,60)] transition-colors duration-300">
               <FaGraduationCap
                 size={28}
                 className="mb-3 text-foreground"
@@ -58,7 +59,7 @@ export function About() {
               <p className="text-sm text-[rgb(85,85,85)] dark:text-[rgb(193,193,193)]">
                 Bernard Baruch College — B.Sc. Public Affairs
               </p>
-            </div>
+            </TiltCard>
           </div>
 
           <p className="max-w-4xl text-left text-[rgb(85,85,85)] dark:text-[rgb(193,193,193)] leading-relaxed lg:text-[1.05rem]">
