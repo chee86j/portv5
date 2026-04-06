@@ -1,5 +1,4 @@
 import { Loader } from "@/app/components/ui/Loader";
-import { FadeInSection } from "@/app/components/ui/FadeInSection";
 import { Navbar } from "@/app/components/sections/Navbar";
 import { Profile } from "@/app/components/sections/Profile";
 import { About } from "@/app/components/sections/About";
@@ -14,21 +13,11 @@ export default function Home() {
       <Loader />
       <Navbar />
       <main>
-        <FadeInSection>
-          <Profile />
-        </FadeInSection>
-        <FadeInSection>
-          <About />
-        </FadeInSection>
-        <FadeInSection>
-          <Experience />
-        </FadeInSection>
-        <FadeInSection>
-          <Projects />
-        </FadeInSection>
-        <FadeInSection>
-          <Contact />
-        </FadeInSection>
+        <Profile />
+        <About />
+        <Experience />
+        <Projects />
+        <Contact />
       </main>
       <Footer />
     </>
