@@ -13,7 +13,7 @@ export function About() {
   return (
     <section
       id="about"
-      className="relative mx-[5%] scroll-mt-24 py-6 lg:mx-40 lg:min-h-[96vh] lg:scroll-mt-32 lg:py-[4vh]"
+      className="mx-[5%] scroll-mt-24 py-6 pb-14 lg:mx-40 lg:min-h-[96vh] lg:scroll-mt-32 lg:py-[4vh] lg:pb-20"
     >
       <StaggerGroup className="text-center" stagger={0.08}>
         <StaggerItem distance={12}>
@@ -92,13 +92,15 @@ export function About() {
         </StaggerGroup>
       </div>
 
-      <a
-        href="#experience"
-        aria-label="Scroll to Experience"
-        className="absolute bottom-10 right-0 hidden text-foreground transition-transform duration-300 hover:scale-110 dark:invert lg:inline-flex"
-      >
-        <FaArrowDown size={28} aria-hidden />
-      </a>
+      <div className="mt-8 flex justify-center lg:mt-10 lg:justify-end">
+        <a
+          href="#experience"
+          aria-label="Scroll to Experience"
+          className="inline-flex text-foreground transition-transform duration-300 hover:translate-y-1 dark:text-white"
+        >
+          <FaArrowDown size={28} aria-hidden />
+        </a>
+      </div>
     </section>
   );
 }

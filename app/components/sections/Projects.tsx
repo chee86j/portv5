@@ -56,7 +56,7 @@ export function Projects() {
   return (
     <section
       id="projects"
-      className="relative mx-[5%] flex scroll-mt-24 flex-col py-6 lg:mx-20 lg:min-h-[96vh] lg:scroll-mt-32 lg:py-[4vh] xl:mx-32"
+      className="mx-[5%] flex scroll-mt-24 flex-col py-6 pb-14 lg:mx-20 lg:min-h-[96vh] lg:scroll-mt-32 lg:py-[4vh] lg:pb-20 xl:mx-32"
     >
       <StaggerGroup className="text-center" stagger={0.08}>
         <StaggerItem distance={12}>
@@ -86,13 +86,15 @@ export function Projects() {
         </StaggerGroup>
       </div>
 
-      <a
-        href="#contact"
-        aria-label="Scroll to Contact"
-        className="absolute bottom-10 right-0 hidden text-foreground transition-transform duration-300 hover:scale-110 dark:invert lg:inline-flex"
-      >
-        <FaArrowDown size={28} aria-hidden />
-      </a>
+      <div className="mt-8 flex justify-center lg:mt-10 lg:justify-end">
+        <a
+          href="#contact"
+          aria-label="Scroll to Contact"
+          className="inline-flex text-foreground transition-transform duration-300 hover:translate-y-1 dark:text-white"
+        >
+          <FaArrowDown size={28} aria-hidden />
+        </a>
+      </div>
     </section>
   );
 }
