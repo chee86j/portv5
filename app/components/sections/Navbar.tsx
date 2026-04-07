@@ -28,7 +28,7 @@ export function Navbar() {
       {/* Desktop nav */}
       <nav
         id="desktop-nav"
-        className="hidden lg:flex justify-around items-center h-[17vh]"
+        className="hidden h-[17vh] items-center justify-around xl:flex"
       >
         <span className="text-3xl font-medium cursor-default">
           Jeffrey Chee
@@ -50,7 +50,7 @@ export function Navbar() {
       {/* Hamburger nav */}
       <nav
         id="hamburger-nav"
-        className="flex min-h-[104px] items-end justify-between px-5 pb-4 pt-14 lg:hidden"
+        className="flex min-h-[104px] items-end justify-between px-5 pb-4 pt-14 xl:hidden"
       >
         <span className="cursor-default text-[1.85rem] font-medium leading-none sm:text-2xl">
           Jeffrey Chee

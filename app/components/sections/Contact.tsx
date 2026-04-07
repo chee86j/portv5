@@ -11,7 +11,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="mx-[5%] flex min-h-[72vh] scroll-mt-24 flex-col items-center justify-center py-8 lg:mx-40 lg:min-h-[96vh] lg:scroll-mt-32 lg:py-[4vh]"
+      className="mx-[5%] flex min-h-[72vh] scroll-mt-24 flex-col items-center justify-center py-8 xl:mx-40 xl:min-h-[96vh] xl:scroll-mt-32 xl:py-[4vh]"
     >
       <StaggerGroup className="text-center" stagger={0.08}>
         <StaggerItem distance={12}>
@@ -20,7 +20,7 @@ export function Contact() {
           </p>
         </StaggerItem>
         <StaggerItem>
-          <h1 className="mt-1 text-3xl font-bold lg:text-4xl">Contact Me</h1>
+          <h1 className="mt-1 text-3xl font-bold xl:text-4xl">Contact Me</h1>
         </StaggerItem>
       </StaggerGroup>
 

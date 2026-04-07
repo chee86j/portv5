@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { FaArrowDown } from "react-icons/fa";
 import {
   StaggerGroup,
   StaggerItem,
@@ -11,7 +10,7 @@ import { projects, type Project } from "@/app/lib/data/projects";
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <TiltCard className="flex h-full min-h-[560px] w-[82vw] max-w-[320px] shrink-0 flex-col rounded-3xl border border-[rgb(163,163,163)] bg-[rgb(250,250,250)] p-4 transition-colors duration-300 dark:border-[rgb(185,185,185)] dark:bg-[rgb(60,60,60)] sm:min-h-[600px] lg:min-h-[620px] lg:w-[300px]">
+    <TiltCard className="flex h-full min-h-[560px] w-[82vw] max-w-[320px] shrink-0 flex-col rounded-3xl border border-[rgb(163,163,163)] bg-[rgb(250,250,250)] p-4 transition-colors duration-300 dark:border-[rgb(185,185,185)] dark:bg-[rgb(60,60,60)] sm:min-h-[600px] xl:min-h-[620px] xl:w-[300px]">
       <Image
         src={project.image}
         alt={project.title}
@@ -56,7 +55,7 @@ export function Projects() {
   return (
     <section
       id="projects"
-      className="mx-[5%] flex scroll-mt-24 flex-col py-6 pb-14 lg:mx-20 lg:min-h-[96vh] lg:scroll-mt-32 lg:py-[4vh] lg:pb-20 xl:mx-32"
+      className="mx-[5%] flex scroll-mt-24 flex-col py-6 pb-14 xl:mx-32 xl:min-h-[96vh] xl:scroll-mt-32 xl:py-[4vh] xl:pb-20"
     >
       <StaggerGroup className="text-center" stagger={0.08}>
         <StaggerItem distance={12}>
@@ -65,7 +64,7 @@ export function Projects() {
           </p>
         </StaggerItem>
         <StaggerItem>
-          <h1 className="mt-1 text-3xl font-bold lg:text-4xl">Projects</h1>
+          <h1 className="mt-1 text-3xl font-bold xl:text-4xl">Projects</h1>
         </StaggerItem>
       </StaggerGroup>
 
@@ -86,13 +85,20 @@ export function Projects() {
         </StaggerGroup>
       </div>
 
-      <div className="mt-8 flex justify-center lg:mt-10 lg:justify-end">
+      <div className="mt-8 flex justify-center xl:mt-10 xl:justify-end">
         <a
           href="#contact"
           aria-label="Scroll to Contact"
           className="inline-flex text-foreground transition-transform duration-300 hover:translate-y-1 dark:text-white"
         >
-          <FaArrowDown size={28} aria-hidden />
+          <Image
+            src="/icons/arrow.png"
+            alt=""
+            width={32}
+            height={32}
+            aria-hidden
+            className="h-8 w-8 dark:invert"
+          />
         </a>
       </div>
     </section>

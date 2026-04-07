@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { FaBriefcase, FaGraduationCap, FaArrowDown } from "react-icons/fa";
+import { FaBriefcase, FaGraduationCap } from "react-icons/fa";
 import {
   FadeInSection,
   StaggerGroup,
@@ -13,7 +13,7 @@ export function About() {
   return (
     <section
       id="about"
-      className="mx-[5%] scroll-mt-24 py-6 pb-14 lg:mx-40 lg:min-h-[96vh] lg:scroll-mt-32 lg:py-[4vh] lg:pb-20"
+      className="mx-[5%] scroll-mt-24 py-6 pb-14 xl:mx-40 xl:min-h-[96vh] xl:scroll-mt-32 xl:py-[4vh] xl:pb-20"
     >
       <StaggerGroup className="text-center" stagger={0.08}>
         <StaggerItem distance={12}>
@@ -22,16 +22,16 @@ export function About() {
           </p>
         </StaggerItem>
         <StaggerItem>
-          <h1 className="mt-1 text-3xl font-bold lg:text-4xl">About Me</h1>
+          <h1 className="mt-1 text-3xl font-bold xl:text-4xl">About Me</h1>
         </StaggerItem>
       </StaggerGroup>
 
-      <div className="mt-8 flex flex-col gap-10 lg:mt-12 lg:grid lg:grid-cols-[minmax(280px,400px)_minmax(0,1fr)] lg:items-center lg:gap-16">
+      <div className="mt-8 flex flex-col gap-10 xl:mt-12 xl:grid xl:grid-cols-[minmax(280px,400px)_minmax(0,1fr)] xl:items-center xl:gap-16">
         <FadeInSection
-          className="flex items-start justify-center lg:justify-start"
+          className="flex items-start justify-center xl:justify-start"
           distance={18}
         >
-          <div className="relative h-56 w-56 sm:h-64 sm:w-64 lg:h-80 lg:w-80">
+          <div className="relative h-56 w-56 sm:h-64 sm:w-64 md:h-[275px] md:w-[275px] xl:h-80 xl:w-80">
             <Image
               src="/images/about-pic.jpg"
               alt="Jeffrey Chee"
@@ -41,8 +41,8 @@ export function About() {
           </div>
         </FadeInSection>
 
-        <StaggerGroup className="flex flex-col gap-8 lg:max-w-4xl" stagger={0.1}>
-          <StaggerGroup className="grid gap-5 sm:grid-cols-2 lg:gap-6" stagger={0.08}>
+        <StaggerGroup className="flex flex-col gap-8 xl:max-w-4xl" stagger={0.1}>
+          <StaggerGroup className="grid gap-5 sm:grid-cols-2 xl:gap-6" stagger={0.08}>
             <StaggerItem>
               <TiltCard className="flex min-h-[170px] flex-col items-center justify-center rounded-3xl border border-[rgb(163,163,163)] p-6 text-center transition-colors duration-300 dark:border-[rgb(185,185,185)] dark:bg-[rgb(60,60,60)]">
                 <FaBriefcase
@@ -77,7 +77,7 @@ export function About() {
           </StaggerGroup>
 
           <StaggerItem>
-            <p className="max-w-4xl text-left leading-relaxed text-[rgb(85,85,85)] dark:text-[rgb(193,193,193)] lg:text-[1.05rem]">
+            <p className="max-w-4xl text-left leading-relaxed text-[rgb(85,85,85)] dark:text-[rgb(193,193,193)] xl:text-[1.05rem]">
               Jeffrey transitioned over a decade&apos;s worth of Real Estate
               Property Management experience to Software Engineering, combining
               his sharp problem-solving skills with keen insights from property
@@ -92,13 +92,20 @@ export function About() {
         </StaggerGroup>
       </div>
 
-      <div className="mt-8 flex justify-center lg:mt-10 lg:justify-end">
+      <div className="mt-8 flex justify-center xl:mt-10 xl:justify-end">
         <a
           href="#experience"
           aria-label="Scroll to Experience"
           className="inline-flex text-foreground transition-transform duration-300 hover:translate-y-1 dark:text-white"
         >
-          <FaArrowDown size={28} aria-hidden />
+          <Image
+            src="/icons/arrow.png"
+            alt=""
+            width={32}
+            height={32}
+            aria-hidden
+            className="h-8 w-8 dark:invert"
+          />
         </a>
       </div>
     </section>

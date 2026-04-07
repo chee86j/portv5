@@ -16,10 +16,10 @@ export function Profile() {
   return (
     <section
       id="profile"
-      className="mx-[5%] flex min-h-[calc(100vh-5rem)] scroll-mt-24 flex-col items-center justify-center gap-10 pb-10 pt-8 sm:pt-10 lg:mx-40 lg:min-h-[80vh] lg:flex-row lg:gap-20 lg:py-[4vh] lg:scroll-mt-32"
+      className="mx-[5%] flex min-h-[calc(100vh-5rem)] scroll-mt-24 flex-col items-center justify-center gap-10 pb-10 pt-8 sm:pt-10 xl:mx-40 xl:min-h-[80vh] xl:flex-row xl:gap-20 xl:py-[4vh] xl:scroll-mt-32"
     >
       <FadeInSection
-        className="relative h-56 w-56 shrink-0 sm:h-64 sm:w-64 lg:h-96 lg:w-96"
+        className="relative h-56 w-56 shrink-0 sm:h-64 sm:w-64 md:h-[275px] md:w-[275px] xl:h-[400px] xl:w-[400px]"
         distance={18}
       >
         <Image
@@ -38,12 +38,12 @@ export function Profile() {
           </p>
         </StaggerItem>
         <StaggerItem>
-          <h1 className="mt-1 text-3xl font-bold sm:text-4xl lg:text-5xl">
+          <h1 className="mt-1 text-3xl font-bold sm:text-4xl xl:text-5xl">
             Jeffrey Chee
           </h1>
         </StaggerItem>
         <StaggerItem>
-          <p className="mb-4 mt-2 text-xl font-semibold text-[rgb(85,85,85)] dark:text-[rgb(187,187,187)] sm:text-2xl lg:text-[1.75rem]">
+          <p className="mb-4 mt-2 text-xl font-semibold text-[rgb(85,85,85)] dark:text-[rgb(187,187,187)] sm:text-2xl xl:text-[1.75rem]">
             FullStack Developer
           </p>
         </StaggerItem>

@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { FaArrowDown } from "react-icons/fa";
 import {
   StaggerGroup,
   StaggerItem,
@@ -44,7 +43,7 @@ function SkillItem({ skill }: { skill: Skill }) {
 function SkillGroup({ title, skills }: { title: string; skills: Skill[] }) {
   return (
     <div className="h-full rounded-3xl border border-slate-300 bg-white p-5 shadow-sm shadow-slate-200/60 transition-all duration-300 hover:shadow-lg dark:border-slate-500 dark:bg-slate-900 dark:shadow-black/35 sm:p-6">
-      <h2 className="mb-8 text-center text-2xl font-semibold text-foreground underline dark:text-white lg:text-[1.75rem]">
+      <h2 className="mb-8 text-center text-2xl font-semibold text-foreground underline dark:text-white xl:text-[1.75rem]">
         {title}
       </h2>
       <StaggerGroup
@@ -65,7 +64,7 @@ export function Experience() {
   return (
     <section
       id="experience"
-      className="mx-[5%] flex scroll-mt-24 flex-col py-6 pb-14 lg:mx-40 lg:min-h-[96vh] lg:scroll-mt-32 lg:py-[4vh] lg:pb-20"
+      className="mx-[5%] flex scroll-mt-24 flex-col py-6 pb-14 xl:mx-40 xl:min-h-[96vh] xl:scroll-mt-32 xl:py-[4vh] xl:pb-20"
     >
       <StaggerGroup className="text-center" stagger={0.08}>
         <StaggerItem distance={12}>
@@ -74,12 +73,12 @@ export function Experience() {
           </p>
         </StaggerItem>
         <StaggerItem>
-          <h1 className="mt-1 text-3xl font-bold lg:text-4xl">Experience</h1>
+          <h1 className="mt-1 text-3xl font-bold xl:text-4xl">Experience</h1>
         </StaggerItem>
       </StaggerGroup>
 
       <StaggerGroup
-        className="mt-8 grid gap-6 lg:grid-cols-2 2xl:grid-cols-3"
+        className="mt-8 grid gap-6 xl:grid-cols-2 2xl:grid-cols-3"
         stagger={0.12}
       >
         <StaggerItem>
@@ -93,13 +92,20 @@ export function Experience() {
         </StaggerItem>
       </StaggerGroup>
 
-      <div className="mt-8 flex justify-center lg:mt-10 lg:justify-end">
+      <div className="mt-8 flex justify-center xl:mt-10 xl:justify-end">
         <a
           href="#projects"
           aria-label="Scroll to Projects"
           className="inline-flex text-foreground transition-transform duration-300 hover:translate-y-1 dark:text-white"
         >
-          <FaArrowDown size={28} aria-hidden />
+          <Image
+            src="/icons/arrow.png"
+            alt=""
+            width={32}
+            height={32}
+            aria-hidden
+            className="h-8 w-8 dark:invert"
+          />
         </a>
       </div>
     </section>

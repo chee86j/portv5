@@ -76,6 +76,11 @@ Each project incorporates responsive design and interactive elements, ensuring a
 - Run `npm run build` to generate the static production build.
 - The deployable output is generated in the `out/` directory.
 
+4. **Preview the Static Build Locally**:
+
+- Run `npm run build` first.
+- Run `npx serve@latest out` to serve the exported static site locally.
+
 ## Static Export
 
 This project is configured for static export in [next.config.ts](next.config.ts):
